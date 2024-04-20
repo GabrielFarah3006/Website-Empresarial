@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleCardapio.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+        <div class="logo">
+            <a href="#">
+            <img src="imagens/logo.png" id="marino">
+            </a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="sobre.html">SOBRE</a></li>
+                <li><a href="#">SERVIÇO</a></li>
+                <li><a href="#">NOVIDADE</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </div>
+            <div class="menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="imagens/menu.png"></button>
+            </div>     
+        </div>
+        <script src="menu.js"></script>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="sobre.html" >SOBRE</a></li>
+                <li><a href="cardapio.html">SERVIÇO</a></li>
+                <li><a href="#">NOVIDADE</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </div>  
+    </header> 
+<div class="sobretudo">
+    <div class="botoes">
+        <button class="botao active" id="btn-1" href="#principal" onclick="botao('principal')">Menu Principal</button>
+        <button class="botao" id="btn-2" href="#dolci" onclick="botao('dolci')">Dolci</button>
+        <button class="botao" id="btn-3" href="#cocktails" onclick="botao('cocktails')">Cocktails</button>
+    </div>
+    <div id="cardapio">
+    <div class="principal">
+     <ul class="ul">
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+        <li class="li">
+            <h3>Marino Mule</h3>
+            <p>Se mata, vai se fuder</p>
+            <strong>R$:</strong>
+        </li>
+     </ul>
+    </div>
+    </div>
+</div>
+<script src="menu.js"></script>
+</body>
+<script>
+    function botao(opcao){
+        let botao1 = document.getElementById('btn-1');
+        let botao2 = document.getElementById('btn-2');
+        let botao3 = document.getElementById('btn-3');
+        let conteudo = document.getElementById('cardapio');
+        if(opcao == 'principal'){
+            botao1.classList.add('active');
+            botao2.classList.remove('active');
+            botao3.classList.remove('active');
+        }
+        else if(opcao == 'dolci'){
+            botao1.classList.remove('active');
+            botao2.classList.add('active');
+            botao3.classList.remove('active');
+        }
+        else if(opcao == 'cocktails'){
+            botao1.classList.remove('active');
+            botao2.classList.remove('active');
+            botao3.classList.add('active');
+        }
+    }
+</script>
+</html>

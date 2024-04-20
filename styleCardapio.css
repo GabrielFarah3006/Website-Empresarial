@@ -1,0 +1,57 @@
+html, body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.sobretudo{
+    flex-direction: column;
+    gap: 2rem;
+}
+.botoes{
+display: flex;
+gap: 0.75rem;
+}
+
+.botao{
+    color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(98deg, rgba(32,39,91,0.5) 18.75%,rgba(255,255,255,0.2) 99.68%);
+    width: 140px;
+    height: 64px;
+    border-radius: 0.75rem;
+    border: none;
+}
+
+.active{
+    color: white;
+    background: #20275b;
+}
+
+/* Conteúdo */
+
+#cardapio{
+   border: 2px solid white;
+   width: 50rem;
+   height: auto;
+}
+
+.ul{
+    list-style: none;
+}
+
+.li{
+    padding: 5px;
+    margin: 10px;
+    margin-left: 50px;
+    border: white solid 1px;
+    width: 15rem;
+    float: left;
+}
+
+.li:nth-child(odd){
+    margin-right: 60px;
+}

@@ -1,10 +1,12 @@
 html, body {
+    color: white;
     margin: 0;
     padding: 0;
 }
 
 /*Navegador Computador*/
 .nav{
+    width: 100vw;
     box-shadow: 4px 4px 12px #9c9c9c7e;
     }
 #marino {
@@ -124,7 +126,6 @@ html, body {
 
 /*Seja bem-vindo*/
 .ola{
-    color: rgb(255, 255, 255);
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 40vw; 
 }
@@ -204,13 +205,11 @@ body {
 
 /*SOBRE*/
   #sobretitulo {
-      color: white;
       font-size: 50px;
       font-family: Georgia, 'Times New Roman', Times, serif;
   }
   .sobreparagrafo {
       font-size: 20px;
-      color: #ffffff;
       font-family: Georgia, 'Times New Roman', Times, serif;
       text-align: justify;
   }
