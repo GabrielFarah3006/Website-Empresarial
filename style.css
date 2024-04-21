@@ -1,10 +1,12 @@
 html, body {
+    color: white;
     margin: 0;
     padding: 0;
 }
 
 /*Navegador Computador*/
 .nav{
+    width: 100vw;
     box-shadow: 4px 4px 12px #9c9c9c7e;
     }
 #marino {
@@ -124,6 +126,7 @@ html, body {
 
 /*Seja bem-vindo*/
 .ola{
+
     color: rgb(255, 255, 255);
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 40vw; 
@@ -193,10 +196,14 @@ body {
     width: 100vw; /* Define a largura do vídeo como 100% do contêiner pai */
     height: auto; /* Ajusta a altura automaticamente para manter a proporção */
     max-width: 100%; /* Garante que o vídeo não ultrapasse a largura máxima do contêiner pai */
+    width: 100vw; 
+    height: auto; 
+    max-width: 100%; 
     object-fit: cover;
 }
 
 .video video {
+
     width: 100%; /* Define a largura do vídeo como 100% do contêiner pai */
     height: auto; /* Ajusta a altura automaticamente para manter a proporção */
 }
@@ -244,4 +251,62 @@ body {
 
 .para li {
     margin-bottom: 20px;
+=======
+    width: 100%; 
+    height: auto; 
+}
+}
+
+/*SOBRE*/
+  #sobretitulo {
+      font-size: 50px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .sobreparagrafo {
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: justify;
+  }
+  .sobrecorpo {
+    flex: 1;
+    padding: 40px;
+}
+  
+  [data-component="slideshow"] .slide {
+    display: none;
+  }
+
+  [data-component="slideshow"] .slide.active {
+    display: block;
+  }
+  .sobretudo {
+    display: flex;
+    align-items: center; 
+}
+
+#slideshow-e {
+    flex: 1; 
+    
+}
+@media only screen and (max-width: 768px) {
+    /* Estilos para telas menores */
+    #sobretitulo {
+        font-size: 6vw; /* Tamanho da fonte responsivo */
+    }
+
+    .sobreparagrafo {
+        font-size: 4vw; /* Tamanho da fonte responsivo */
+    }
+
+    .sobretudo {
+        flex-direction: column; /* Coluna em dispositivos menores */
+        align-items: center; 
+    }
+
+    #slideshow-e {
+        width: 80%; /* Largura responsiva do slideshow */
+        margin-top: 20px; /* Espaçamento superior responsivo */
+        padding: 30px;
+    }
+
 }
