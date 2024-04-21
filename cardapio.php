@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleCardapio.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <a href="#">
+                    <img src="imagens/logo.png" id="marino">
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="sobre.html">SOBRE</a></li>
+                    <li><a href="#">SERVIÇO</a></li>
+                    <li><a href="#">NOVIDADE</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </div>
+            <div class="menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="imagens/menu.png"></button>
+            </div>
+        </div>
+        <script src="menu.js"></script>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="sobre.html">SOBRE</a></li>
+                <li><a href="cardapio.html">SERVIÇO</a></li>
+                <li><a href="#">NOVIDADE</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="corpo">
+        <div class="botoes">
+            <button class="botao active" id="btn-1" href="#principal" onclick="botao('principal')">Menu
+                Principal</button>
+            <button class="botao" id="btn-2" href="#dolci" onclick="botao('dolci')">Dolci</button>
+            <button class="botao" id="btn-3" href="#cocktails" onclick="botao('cocktails')">Cocktails</button>
+        </div>
+        <div id="cardapio">
+
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</body>
+<script>
+    function botao(opcao) {
+        let botao1 = document.getElementById('btn-1');
+        let botao2 = document.getElementById('btn-2');
+        let botao3 = document.getElementById('btn-3');
+        let conteudo = document.getElementById('cardapio');
+        if (opcao == 'principal') {
+            botao1.classList.add('active');
+            botao2.classList.remove('active');
+            botao3.classList.remove('active');
+            carregarCardapio('principal');
+        }
+        else if (opcao == 'dolci') {
+
+            botao1.classList.remove('active');
+            botao2.classList.add('active');
+            botao3.classList.remove('active');
+            carregarCardapio('doce');
+        }
+        else if (opcao == 'cocktails') {
+            botao1.classList.remove('active');
+            botao2.classList.remove('active');
+            botao3.classList.add('active');
+            carregarCardapio('coquetel');
+        }
+    }
+
+    function carregarCardapio(tipo) {
+        $.ajax({
+            url: `cardapio_${tipo}.php`, // URL do arquivo PHP correspondente ao tipo
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                console.log('dados recebidos: ', data);
+
+
+                // Limpar conteúdo atual do cardápio
+                $('#cardapio').empty();
+
+
+                // Preencher o cardápio com os itens recebidos do PHP
+                data.forEach(function (item) {
+                    $('#cardapio').append(`
+                             <ul class="ul">        
+                               <li class="li">
+                                <h3>${item.nome}</h3>
+                                <p>${item.descricao}</p>
+                                <strong>R$ ${item.valor}</strong>
+                            </li>
+                            </ul>
+                        `);
+                });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('Erro ao carregar dados do cardápio:', errorThrown);
+            }
+        });
+    }
+
+    // Carregar o cardápio principal por padrão ao carregar a página
+    $(document).ready(function () {
+        carregarCardapio('principal');
+    });
+</script>
+
+</html>

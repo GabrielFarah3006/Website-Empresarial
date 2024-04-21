@@ -62,56 +62,54 @@
             botao1.classList.add('active');
             botao2.classList.remove('active');
             botao3.classList.remove('active');
-            carregarCardapio(principal);
+            carregarCardapio('principal');
         }
         else if(opcao == 'dolci'){
            
             botao1.classList.remove('active');
             botao2.classList.add('active');
             botao3.classList.remove('active');
-            carregarCardapio(doce);
+            carregarCardapio('doce');
         }
         else if(opcao == 'cocktails'){
             botao1.classList.remove('active');
             botao2.classList.remove('active');
             botao3.classList.add('active');
-            carregarCardapio(coquetel);
+            carregarCardapio('coquetel');
         }
     }
 
     function carregarCardapio(tipo) {
-            $.ajax({
-                url: `cardapio_${tipo}.php`, // URL do arquivo PHP correspondente ao tipo
-                type: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    console.log('dados recebidos: ', data);
+    $.ajax({
+        url: `cardapio_${tipo}.php`,
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            console.log('Dados recebidos:', data);
 
-                    
-                    // Limpar conteúdo atual do cardápio
-                    $('#cardapio').empty();
-                    
+            // Limpar e preencher o conteúdo do cardápio
+            let conteudo = document.getElementById('cardapio');
+            conteudo.innerHTML = '';
 
-                    // Preencher o cardápio com os itens recebidos do PHP
-                    data.forEach(function(item) {
-                        $('#cardapio').append(`
-                            <div>
-                                <h3>${item.nome}</h3>
-                                <p>${item.descricao}</p>
-                                <strong>R$ ${item.valor}</strong>
-                            </div>
-                        `);
-                    });
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Erro ao carregar dados do cardápio:', errorThrown);
-                }
+            data.forEach(function(item) {
+                let divItem = document.createElement('div');
+                divItem.innerHTML = `
+                    <h3>${item.nome}</h3>
+                    <p>${item.descricao}</p>
+                    <strong>R$ ${item.valor}</strong>
+                `;
+                conteudo.appendChild(divItem);
             });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Erro ao carregar dados do cardápio:', errorThrown);
         }
+    });
+}
 
-        // Carregar o cardápio principal por padrão ao carregar a página
-        $(document).ready(function() {
-            carregarCardapio('principal');
-        });
+// Carregar o cardápio principal por padrão ao carregar a página
+$(document).ready(function() {
+    carregarCardapio('principal');
+});
 </script>
 </html>
