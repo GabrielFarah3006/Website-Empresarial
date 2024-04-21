@@ -126,6 +126,8 @@ html, body {
 
 /*Seja bem-vindo*/
 .ola{
+
+    color: rgb(255, 255, 255);
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 40vw; 
 }
@@ -191,6 +193,9 @@ body {
     font-size: vw;
 }
 .video {
+    width: 100vw; /* Define a largura do vídeo como 100% do contêiner pai */
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+    max-width: 100%; /* Garante que o vídeo não ultrapasse a largura máxima do contêiner pai */
     width: 100vw; 
     height: auto; 
     max-width: 100%; 
@@ -198,6 +203,55 @@ body {
 }
 
 .video video {
+
+    width: 100%; /* Define a largura do vídeo como 100% do contêiner pai */
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+}
+}
+/*NOVIDADES*/
+
+/*TÍTULO*/
+#tit {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    margin-top: 150px;
+}
+/*FIM DO TÍTULO*/
+
+/*IMAGEM*/
+#local {
+    width: 25vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.cen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*FIM DA IMAGEM*/
+
+/*PARÁGRAFO*/
+.container {
+    text-align: center;
+}
+
+.para {
+    color: white;
+    display: inline-block;
+    text-align: left;
+    font-size: 25px;
+    margin-top: 105px;
+}
+
+.para li {
+    margin-bottom: 20px;
+=======
     width: 100%; 
     height: auto; 
 }
@@ -254,4 +308,5 @@ body {
         margin-top: 20px; /* Espaçamento superior responsivo */
         padding: 30px;
     }
+
 }

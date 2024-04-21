@@ -9,6 +9,8 @@ function menuShow() {
         menuIconButton.querySelector('.icon').src = "imagens/close.png";
     }
 }
+=======
+}
 
 var slideshows = document.querySelectorAll('[data-component="slideshow"]');
   
@@ -35,3 +37,4 @@ var slideshows = document.querySelectorAll('[data-component="slideshow"]');
 
     }, time);
   }
+
