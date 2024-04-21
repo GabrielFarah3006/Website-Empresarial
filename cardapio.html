@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="styleCardapio.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -39,48 +40,15 @@
             </ul>
         </div>  
     </header> 
-<div class="sobretudo">
+<div class="corpo">
     <div class="botoes">
         <button class="botao active" id="btn-1" href="#principal" onclick="botao('principal')">Menu Principal</button>
         <button class="botao" id="btn-2" href="#dolci" onclick="botao('dolci')">Dolci</button>
         <button class="botao" id="btn-3" href="#cocktails" onclick="botao('cocktails')">Cocktails</button>
     </div>
     <div id="cardapio">
-    <div class="principal">
-     <ul class="ul">
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-        <li class="li">
-            <h3>Marino Mule</h3>
-            <p>Se mata, vai se fuder</p>
-            <strong>R$:</strong>
-        </li>
-     </ul>
-    </div>
-    </div>
+
+</div>
 </div>
 <script src="menu.js"></script>
 </body>
@@ -94,17 +62,56 @@
             botao1.classList.add('active');
             botao2.classList.remove('active');
             botao3.classList.remove('active');
+            carregarCardapio(principal);
         }
         else if(opcao == 'dolci'){
+           
             botao1.classList.remove('active');
             botao2.classList.add('active');
             botao3.classList.remove('active');
+            carregarCardapio(doce);
         }
         else if(opcao == 'cocktails'){
             botao1.classList.remove('active');
             botao2.classList.remove('active');
             botao3.classList.add('active');
+            carregarCardapio(coquetel);
         }
     }
+
+    function carregarCardapio(tipo) {
+            $.ajax({
+                url: `cardapio_${tipo}.php`, // URL do arquivo PHP correspondente ao tipo
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log('dados recebidos: ', data);
+
+                    
+                    // Limpar conteúdo atual do cardápio
+                    $('#cardapio').empty();
+                    
+
+                    // Preencher o cardápio com os itens recebidos do PHP
+                    data.forEach(function(item) {
+                        $('#cardapio').append(`
+                            <div>
+                                <h3>${item.nome}</h3>
+                                <p>${item.descricao}</p>
+                                <strong>R$ ${item.valor}</strong>
+                            </div>
+                        `);
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Erro ao carregar dados do cardápio:', errorThrown);
+                }
+            });
+        }
+
+        // Carregar o cardápio principal por padrão ao carregar a página
+        $(document).ready(function() {
+            carregarCardapio('principal');
+        });
 </script>
 </html>

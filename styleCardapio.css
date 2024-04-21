@@ -1,14 +1,15 @@
 html, body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: white;
     margin: 0;
     padding: 0;
 }
 
-.sobretudo{
+.corpo{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 2rem;
 }
@@ -44,7 +45,7 @@ gap: 0.75rem;
 }
 
 .li{
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
     margin-left: 50px;
     border: white solid 1px;
@@ -54,4 +55,26 @@ gap: 0.75rem;
 
 .li:nth-child(odd){
     margin-right: 60px;
+}
+
+@media (max-width: 910px) {
+    #cardapio{
+        width: 25rem;
+    }
+    .li{
+        margin-left: 25px;
+    }
+}
+@media (max-width: 480px) {
+    #cardapio{
+        width: 15rem;
+    }
+    .botao{
+        width: 80px;
+        height: 32px;
+    }
+    .li{
+    width: 10rem;
+    }
+
 }
