@@ -251,11 +251,10 @@ body {
 
 .para li {
     margin-bottom: 20px;
-=======
     width: 100%; 
     height: auto; 
 }
-}
+
 
 /*SOBRE*/
   #sobretitulo {
