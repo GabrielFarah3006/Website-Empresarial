@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <header>
     <div class="nav">
     <div class="logo">
         <a href="#">
@@ -15,12 +16,42 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="#">SOBRE</a></li>
-            <li><a href="#">SERVIÇO</a></li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="cardapio.html">SERVIÇO</a></li>
             <li><a href="#">NOVIDADE</a></li>
             <li><a href="#">CONTATO</a></li>
         </ul>
     </div>
+        <div class="menu-icon">
+            <button onclick="menuShow()"><img class="icon" src="imagens/menu.png"></button>
+        </div>     
     </div>
+    <script src="menu.js"></script>
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="cardapio.html">SERVIÇO</a></li>
+            <li><a href="#">NOVIDADE</a></li>
+            <li><a href="#">CONTATO</a></li>
+        </ul>
+    </div>  
+</header> 
+<div class="corpo">
+    <div class="ola">
+        <h1>Olá, seja bem-vindo
+        <br>
+        ao restaurante Da Marino</h1>
+    <p>Restaurante na zona sul do Rio de Janeiro. Com menu variado e localizado em Ipanema, o restaurante que tem inspiração no sul da Itália  está aberto para receber todos que desejarem conhecer suas delícias.<p>
+    </div>
+        <div class="video">
+            <video width="500" height="300" controls>
+                <source src="imagens/Da Marino1.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+<footer class="footer">
+    <p>Todos os direitos reservados a ©Copyright</p>
+</footer>
 </body>
 </html>
